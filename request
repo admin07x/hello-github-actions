@@ -1,0 +1,16 @@
+import requests
+
+# Remplacez 'your_token' par votre token d'accès personnel GitHub
+token = 'your_token'
+headers = {
+    'Authorization': f'token {token}',
+    'Accept': 'application/vnd.github.v3+json'
+}
+
+response = requests.get('https://api.github.com/user', headers=headers)
+
+if response.status_code == 200:
+    user_info = response.json()
+    print(user_info)
+else:
+    print(f"Erreur: {response.status_code}")
